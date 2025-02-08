@@ -3,7 +3,6 @@ package handlers
 import (
 	"crypto/sha256"
 	"encoding/hex"
-	"fmt"
 	"html/template"
 	"net/http"
 	"time"
@@ -22,9 +21,7 @@ func Login(w http.ResponseWriter, r *http.Request) {
 		}
 		defer db.Close()
 		username := r.FormValue("username")
-		fmt.Println(username)
 		password := r.FormValue("passwd")
-		fmt.Println(password)
 		if username == "" || password == "" {
 			http.Error(w, "Username and password are required", http.StatusBadRequest)
 			return
@@ -54,7 +51,6 @@ func Login(w http.ResponseWriter, r *http.Request) {
 		if err != nil {
 			http.Error(w, "Problem creating session", http.StatusUnauthorized)
 		}
-		fmt.Println(session)
 		http.SetCookie(w, &http.Cookie{
 			Name:     "session",
 			Value:    session,

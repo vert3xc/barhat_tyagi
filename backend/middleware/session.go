@@ -8,26 +8,29 @@ import (
 	"github.com/vert3xc/barhat_tyagi/backend/utils"
 )
 
+type ContextKey string
+
 func SessionHandler(f http.HandlerFunc) http.HandlerFunc {
-	return func(w http.ResponseWriter, r *http.Request) {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		cookie, err := r.Cookie("session")
 		if err != nil {
-			clearSessionCookie(w)
+			ClearSessionCookie(w)
 			http.Redirect(w, r, "/login", http.StatusSeeOther)
 			return
 		}
-		sessionData, err := utils.DecodeSession(cookie.String())
+		sessionData, err := utils.DecodeSession(cookie.Value)
 		if err != nil {
-			go clearSessionCookie(w)
+			ClearSessionCookie(w)
 			http.Redirect(w, r, "/login", http.StatusSeeOther)
 			return
 		}
-		ctx := context.WithValue(r.Context(), "session", sessionData)
+		var contextKey ContextKey = "session"
+		ctx := context.WithValue(r.Context(), contextKey, sessionData)
 		f.ServeHTTP(w, r.WithContext(ctx))
-	}
+	})
 }
 
-func clearSessionCookie(w http.ResponseWriter) {
+func ClearSessionCookie(w http.ResponseWriter) {
 	http.SetCookie(w, &http.Cookie{
 		Name:     "session",
 		Value:    "",
