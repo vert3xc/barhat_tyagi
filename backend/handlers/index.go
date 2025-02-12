@@ -4,12 +4,11 @@ import (
 	"html/template"
 	"net/http"
 
-	"github.com/vert3xc/barhat_tyagi/backend/middleware"
 	"github.com/vert3xc/barhat_tyagi/backend/utils"
 )
 
 func Index(w http.ResponseWriter, r *http.Request) {
-	var contextKey middleware.ContextKey = "session"
+	var contextKey utils.ContextKey = "session"
 	sessionData, ok := r.Context().Value(contextKey).(utils.SessionData)
 	if !ok {
 		http.Redirect(w, r, "/login", http.StatusSeeOther)

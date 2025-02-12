@@ -12,12 +12,6 @@ import (
 	"time"
 )
 
-type SessionData struct {
-	ID       int
-	Username string
-	Expiry   time.Time
-}
-
 var secretKey = []byte("abcdefghijklmnopqrstuvwxyz123456")
 
 func CreateSession(session SessionData) (string, error) {

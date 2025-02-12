@@ -8,5 +8,5 @@ import (
 
 func Logout(w http.ResponseWriter, r *http.Request) {
 	middleware.ClearSessionCookie(w)
-	http.Redirect(w, r, "/login", http.StatusSeeOther)
+	http.Redirect(w, r, "/", http.StatusSeeOther)
 }
