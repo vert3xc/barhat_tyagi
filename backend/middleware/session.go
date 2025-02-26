@@ -48,7 +48,7 @@ func ClearSessionCookie(w http.ResponseWriter) {
 	http.SetCookie(w, &http.Cookie{
 		Name:     "session",
 		Value:    "",
-		Expires:  time.Unix(0, 0),
+		MaxAge:   -1,
 		HttpOnly: true,
 		Secure:   false,
 		SameSite: http.SameSiteLaxMode,

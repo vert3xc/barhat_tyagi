@@ -3,7 +3,9 @@ package handlers
 import (
 	"crypto/sha256"
 	"encoding/hex"
+	"html"
 	"html/template"
+	"log"
 	"net/http"
 	"time"
 
@@ -24,6 +26,12 @@ func Login(w http.ResponseWriter, r *http.Request) {
 		password := r.FormValue("passwd")
 		if username == "" || password == "" {
 			http.Error(w, "Username and password are required", http.StatusBadRequest)
+			return
+		}
+		sanitizedUsername := html.EscapeString(username)
+		log.Println(sanitizedUsername)
+		if sanitizedUsername != username {
+			http.Error(w, "Username contains invalid characters.", http.StatusBadRequest)
 			return
 		}
 		hash := sha256.Sum256([]byte(password))

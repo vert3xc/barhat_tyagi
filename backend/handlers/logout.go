@@ -7,6 +7,12 @@ import (
 )
 
 func Logout(w http.ResponseWriter, r *http.Request) {
-	middleware.ClearSessionCookie(w)
-	http.Redirect(w, r, "/", http.StatusSeeOther)
+	if r.Method == "GET" {
+		middleware.ClearSessionCookie(w)
+		http.Redirect(w, r, "/", http.StatusSeeOther)
+		return
+	} else {
+		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+		return
+	}
 }

@@ -3,8 +3,9 @@ package handlers
 import (
 	"crypto/sha256"
 	"encoding/hex"
-	"fmt"
+	"html"
 	"html/template"
+	"log"
 	"net/http"
 
 	"github.com/vert3xc/barhat_tyagi/backend/utils"
@@ -21,9 +22,15 @@ func Register(w http.ResponseWriter, r *http.Request) {
 		}
 		defer db.Close()
 		username := r.FormValue("username")
-		fmt.Println(username)
+		log.Println(username)
+		sanitizedUsername := html.EscapeString(username)
+		log.Println(sanitizedUsername)
+		if sanitizedUsername != username {
+			http.Error(w, "Username contains invalid characters.", http.StatusBadRequest)
+			return
+		}
 		password := r.FormValue("passwd")
-		fmt.Println(password)
+		log.Println(password)
 		if username == "" || password == "" {
 			http.Error(w, "Username and password are required", http.StatusBadRequest)
 			return
@@ -32,11 +39,11 @@ func Register(w http.ResponseWriter, r *http.Request) {
 		hshdPassword := hex.EncodeToString(hash[:])
 		_, err = db.Exec(
 			"INSERT INTO users (username, password_hash) VALUES ($1, $2)",
-			username, hshdPassword,
+			sanitizedUsername, hshdPassword,
 		)
 
 		if err != nil {
-			http.Error(w, "Username already exists", http.StatusConflict)
+			http.Error(w, "Problem adding user. Probably username already exists", http.StatusConflict)
 			return
 		}
 		http.Redirect(w, r, "/login", http.StatusSeeOther)

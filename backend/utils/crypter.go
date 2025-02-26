@@ -34,7 +34,7 @@ func SignSession(data SessionData) (string, error) {
 func DecodeSession(session string) (SessionData, error) {
 	parts := strings.Split(session, ".")
 	if len(parts) != 2 {
-		log.Println("unexpeccted")
+		log.Println("unexpected")
 		return SessionData{}, errors.New("unexpected format")
 	}
 	payload, err := base64.URLEncoding.DecodeString(parts[0])
