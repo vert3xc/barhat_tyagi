@@ -49,7 +49,7 @@ func Register(w http.ResponseWriter, r *http.Request) {
 		http.Redirect(w, r, "/login", http.StatusSeeOther)
 		return
 	}
-	tmpl, err := template.ParseFiles("frontend/templates/register.html")
+	tmpl, err := template.ParseFiles("templates/register.html")
 	w.Header().Set("Content-Type", "text/html")
 	if err != nil {
 		http.Error(w, "Template not found", http.StatusInternalServerError)

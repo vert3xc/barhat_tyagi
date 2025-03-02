@@ -3,27 +3,33 @@ package handlers
 import (
 	"html/template"
 	"net/http"
+	"path/filepath"
 
 	"github.com/vert3xc/barhat_tyagi/backend/utils"
 )
 
 func Index(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "text/html; charset=UTF-8")
 	var contextKey utils.ContextKey = "session"
 	sessionData, ok := r.Context().Value(contextKey).(utils.SessionData)
-	if !ok {
+	if !ok || sessionData.Username == "" {
 		http.Redirect(w, r, "/login", http.StatusSeeOther)
 		return
 	}
-	name := template.HTML(sessionData.Username)
-	if name == "" {
-		http.Redirect(w, r, "/", http.StatusSeeOther)
-		return
-	}
-	tmpl, err := template.New("greeting").Parse(`<b>Hello, {{.}}</b>`)
+
+	tmplPath := filepath.Join("templates", "index.html")
+	tmpl, err := template.ParseFiles(tmplPath)
 	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
+		http.Error(w, "Template error: "+err.Error(), http.StatusInternalServerError)
 		return
 	}
-	tmpl.Execute(w, name)
+
+	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+	err = tmpl.Execute(w, struct {
+		Username string
+	}{
+		Username: sessionData.Username,
+	})
+	if err != nil {
+		http.Error(w, "Execution error: "+err.Error(), http.StatusInternalServerError)
+	}
 }
