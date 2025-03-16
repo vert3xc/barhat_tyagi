@@ -7,6 +7,7 @@ import (
 type SessionData struct {
 	ID       int
 	Username string
+        Role string
 	Expiry   time.Time
 }
 

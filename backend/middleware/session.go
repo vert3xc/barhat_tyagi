@@ -16,6 +16,7 @@ func SessionHandler(f http.HandlerFunc) http.HandlerFunc {
 			sessionData := utils.SessionData{
 				ID:       0,
 				Username: "Anon",
+                                Role: "Anon",
 				Expiry:   time.Now().Add(24 * time.Hour),
 			}
 			session, err := utils.CreateSession(sessionData)
