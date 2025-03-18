@@ -8,23 +8,39 @@
     <link rel="stylesheet" href="/static/home.css">
 </head>
 <body>
-    <nav class="navbar">
-        <a class="brand" href="/">Barhat Tyagi</a>
-        <ul class="nav-links">
-            <li class="nav-item">
-                <a class="nav-link" href="/profile">{{.Username}}</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/news">События</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link logout" href="/register">Регистрация</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link logout" href="/logout">Выйти</a>
-            </li>
-        </ul>
-    </nav>
-
+    {{if eq .Username "Anon"}}
+        <nav class="navbar">
+            <a class="brand" href="/">Barhat Tyagi</a>
+            <ul class="nav-links">
+                <li class="nav-item">
+                    <a class="nav-link" href="/profile">{{.Username}}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/news">События</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link logout" href="/register">Регистрация</a>
+                </li>
+            </ul>
+        </nav>
+    {{ else }}
+        <nav class="navbar">
+            <a class="brand" href="/">Barhat Tyagi</a>
+            <ul class="nav-links">
+                <li class="nav-item">
+                    <a class="nav-link" href="/profile">{{.Username}}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/news">События</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link logout" href="/login">Войти</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link logout" href="/logout">Выйти</a>
+                </li>
+            </ul>
+        </nav>
+    {{ end }}
 </body>
 </html>

@@ -12,7 +12,7 @@ func Index(w http.ResponseWriter, r *http.Request) {
 	var contextKey utils.ContextKey = "session"
 	sessionData, ok := r.Context().Value(contextKey).(utils.SessionData)
 	if !ok || sessionData.Username == "" {
-		http.Redirect(w, r, "/login", http.StatusSeeOther)
+		http.Redirect(w, r, "/", http.StatusSeeOther)
 		return
 	}
     
