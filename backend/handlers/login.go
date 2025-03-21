@@ -38,7 +38,7 @@ func Login(w http.ResponseWriter, r *http.Request) {
 		hshdPassword := hex.EncodeToString(hash[:])
 		var id int
 		var actual_psswd string
-                var role string
+		var role string
 		err = db.QueryRow(
 			"SELECT id, password_hash, user_role FROM users WHERE username = $1",
 			username,
@@ -54,7 +54,7 @@ func Login(w http.ResponseWriter, r *http.Request) {
 		sessionData := utils.SessionData{
 			ID:       id,
 			Username: username,
-                        Role: role,
+			Role:     role,
 			Expiry:   time.Now().Add(24 * time.Hour),
 		}
 		session, err := utils.CreateSession(sessionData)
@@ -72,7 +72,7 @@ func Login(w http.ResponseWriter, r *http.Request) {
 		http.Redirect(w, r, "/", http.StatusSeeOther)
 		return
 	}
-	tmpl, err := template.ParseFiles("templates/register.html")
+	tmpl, err := template.ParseFiles("templates/login.html")
 	w.Header().Set("Content-Type", "text/html")
 	if err != nil {
 		http.Error(w, "Template not found", http.StatusInternalServerError)

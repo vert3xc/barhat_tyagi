@@ -1,0 +1,4 @@
+{{ range $thread := . }}
+    <a href="/threads/{{ $thread.ID }}">{{ $thread.ThreadName }}</a>
+    <br>
+{{ end }}

@@ -8,11 +8,12 @@ import (
 	"encoding/gob"
 	"errors"
 	"log"
+	"os"
 	"strings"
 	"time"
 )
 
-var secretKey = []byte("abcdefghijklmnopqrstuvwxyz123456")
+var secretKey = []byte(os.Getenv("secretKey"))
 
 func CreateSession(session SessionData) (string, error) {
 	return SignSession(session)

@@ -1,0 +1,7 @@
+{{ range $voting := . }}
+    <div>
+        <a href="/threads/{{ $voting.ThreadId }}/{{ $voting.ID }}">{{ $voting.Title }}</a>
+        <b>{{ $voting.Descr }}</b>
+    </div>
+    <br>
+{{ end }}
