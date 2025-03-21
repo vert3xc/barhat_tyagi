@@ -38,10 +38,11 @@ func Login(w http.ResponseWriter, r *http.Request) {
 		hshdPassword := hex.EncodeToString(hash[:])
 		var id int
 		var actual_psswd string
+		var role string
 		err = db.QueryRow(
-			"SELECT id, password_hash FROM users WHERE username = $1",
+			"SELECT id, password_hash, user_role FROM users WHERE username = $1",
 			username,
-		).Scan(&id, &actual_psswd)
+		).Scan(&id, &actual_psswd, &role)
 		if err != nil {
 			http.Error(w, "problem with finding user", http.StatusInternalServerError)
 			return
@@ -53,6 +54,7 @@ func Login(w http.ResponseWriter, r *http.Request) {
 		sessionData := utils.SessionData{
 			ID:       id,
 			Username: username,
+			Role:     role,
 			Expiry:   time.Now().Add(24 * time.Hour),
 		}
 		session, err := utils.CreateSession(sessionData)

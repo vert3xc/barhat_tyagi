@@ -38,8 +38,8 @@ func Register(w http.ResponseWriter, r *http.Request) {
 		hash := sha256.Sum256([]byte(password))
 		hshdPassword := hex.EncodeToString(hash[:])
 		_, err = db.Exec(
-			"INSERT INTO users (username, password_hash) VALUES ($1, $2)",
-			sanitizedUsername, hshdPassword,
+			"INSERT INTO users (username, password_hash, user_role) VALUES ($1, $2, $3)",
+			sanitizedUsername, hshdPassword, "User",
 		)
 
 		if err != nil {
