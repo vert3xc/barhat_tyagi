@@ -77,7 +77,7 @@ func CreateVoting(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 	} else {
-		tmpl, err := template.ParseFiles("templates/createVoting.html")
+		tmpl, err := template.ParseFiles("templates/create_voting.html")
 		w.Header().Set("Content-Type", "text/html")
 		if err != nil {
 			http.Error(w, "Template not found", http.StatusInternalServerError)

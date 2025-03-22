@@ -1,0 +1,80 @@
+body {
+    background-color: rgb(184, 213, 184);
+    margin: 0;
+    padding: 150px 0 0;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+h1 {
+    color: #283b4f;
+    margin-bottom: 30px;
+    font-size: 2.2em;
+}
+
+.votings-list {
+    background-color: rgb(228, 228, 228);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.voting-card {
+    background: white;
+    border-radius: 8px;
+    padding: 16px 24px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-decoration: none;
+    display: block;
+}
+
+.voting-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.voting-content h3 {
+    color: #283b4f;
+    margin: 0;
+    transition: color 0.3s ease;
+}
+
+.voting-card:hover h3 {
+    color: #243247;
+}
+
+.description {
+    color: #6c757d;
+    margin: 8px 0 0;
+    font-size: 0.95em;
+}
+
+.actions {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.btn-primary {
+    background: #ffffff !important;
+    color: #000000 !important;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s;
+    display: inline-block;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary:hover {
+    background: #f0f0f0 !important;
+    transform: none;
+}

@@ -71,17 +71,4 @@ body {
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-.login {
-    background-color: var(--light-green);
-    color: var(--primary-green);
-}
 
-.register {
-    background-color: var(--text-white);
-    color: var(--primary-green);
-    border: 2px solid var(--light-green);
-}
-
-.logout {
-    background-color: var(--dark-green);
-}

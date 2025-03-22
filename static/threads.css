@@ -1,0 +1,79 @@
+body {
+    background-color: rgb(184, 213, 184);
+    padding-top: 150px;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 16px;
+    padding-right: 16px;
+
+}
+
+.threads {
+    background-color: rgb(228, 228, 228); 
+    border-radius: 8px; 
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+}
+
+.btn-primary {
+    background: #ffffff !important;
+    color: #000000 !important;
+    border-radius: 8px;
+    padding: 12px;
+    font-weight: 600;
+    border: none;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.btn-primary:hover {
+    background: #f0f0f0 !important;
+}
+
+.btn-success {
+    background: #9a9a9a;
+    border-radius: 8px;
+    padding: 12px;
+    font-weight: 600;
+    border: none;
+}
+
+
+
+.thread-card {
+    background: white;
+    border-radius: 8px;
+    padding: 16px 24px;
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-decoration: none;
+}
+
+.thread-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.thread-card h3 {
+    color: #283b4f;
+    transition: color 0.3s ease; 
+    margin: 0;
+}
+
+.thread-card:hover h3 {
+    color: #243247; 
+    text-decoration: none; 
+}
+
+

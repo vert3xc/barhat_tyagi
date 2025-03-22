@@ -1,7 +1,31 @@
-{{ range $voting := . }}
-    <div>
-        <a href="/threads/{{ $voting.ThreadId }}/{{ $voting.ID }}">{{ $voting.Title }}</a>
-        <b>{{ $voting.Descr }}</b>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Голосования</title>
+    <link rel="stylesheet" href="/static/threadVotings.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Все голосования в данном треде</h1>
+        
+        <div class="votings-list">
+            {{ range $voting := . }}
+            <a href="/threads/{{ $voting.ThreadId }}/{{ $voting.ID }}" class="voting-card">
+                <div class="voting-content">
+                    <h3>{{ $voting.Title }}</h3>
+                    {{ if $voting.Descr }}
+                    <p class="description">{{ $voting.Descr }}</p>
+                    {{ end }}
+                </div>
+            </a>
+            {{ end }}
+        </div>
+        
+        <div class="actions">
+            <a href="/create_voting" class="btn-primary">Создать новое голосование</a>
+        </div>
     </div>
-    <br>
-{{ end }}
+</body>
+</html>
