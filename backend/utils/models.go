@@ -11,6 +11,17 @@ type SessionData struct {
 	Expiry   time.Time
 }
 
+type Option struct {
+	VotingId int
+	OptionText string
+	VoteCount int
+}
+
+type FullVoting struct{
+	Voting Voting
+	Options []Option
+}
+
 type Thread struct {
 	ID         int
 	ThreadName string

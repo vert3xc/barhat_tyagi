@@ -20,9 +20,6 @@
                     <a class="nav-link" href="/threads">Треды</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/create_voting">Создать голосование</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link special" href="/login">Войти</a>
                 </li>
                 <li class="nav-item">
@@ -30,6 +27,25 @@
                 </li>
             </ul>
         </nav>
+    {{ else if or (eq .Role "Admin") (eq .Role "Moderator") }}
+        <nav class="navbar">
+            <a class="brand" href="/">Barhat Tyagi</a>
+            <ul class="nav-links">
+                <li class="nav-item">
+                    <a class="nav-link" href="/profile">{{.Username}}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/threads">Треды</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link special" href="/create_thread">Создать тред</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link special" href="/create_voting">Создать голосование</a>
+                </li>
+            </ul>
+        </nav>
+
     {{ else }}
         <nav class="navbar">
             <a class="brand" href="/">Barhat Tyagi</a>

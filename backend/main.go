@@ -22,7 +22,7 @@ func main() {
 	r.HandleFunc("/create_thread", middleware.RoleMiddleware([]string{"Moderator", "Admin"})(handlers.CreateThread))
 	r.HandleFunc("/threads", middleware.SessionHandler(handlers.Threads))
 	r.HandleFunc("/threads/{threadId}", middleware.SessionHandler(handlers.ThreadVotings))
-	r.HandleFunc("/threads/{threadId}/{votingId}", middleware.SessionHandler(handlers.Index))
+	r.HandleFunc("/threads/{threadId}/{votingId}", middleware.SessionHandler(handlers.ViewVotings))
 	r.HandleFunc("/logout", handlers.Logout)
 	log.Fatal(http.ListenAndServe(":8080", r))
 }
