@@ -3,6 +3,7 @@ body {
     max-width: 600px;
     margin: 20px auto;
     padding: 20px;
+    font-family: 'Arial', sans-serif;
 }
 .form-group {
     margin-bottom: 15px;
