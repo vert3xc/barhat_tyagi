@@ -9,15 +9,12 @@ import (
 	"github.com/vert3xc/barhat_tyagi/backend/utils"
 
 	_ "github.com/lib/pq"
+        "github.com/gorilla/mux"
 )
 
 func ThreadVotings(w http.ResponseWriter, r *http.Request) {
-	pathParts := strings.Split(strings.Trim(r.URL.Path, "/"), "/")
-	if len(pathParts) < 2 || pathParts[0] != "threads" {
-		http.Error(w, "Invalid URL format", http.StatusBadRequest)
-		return
-	}
-	threadID, err := strconv.Atoi(pathParts[1])
+	params := mux.Vars(r)
+	threadID, err := strconv.Atoi(params["threadId"])
 	if err != nil {
 		http.Error(w, "Invalid thread ID format", http.StatusBadRequest)
 		return

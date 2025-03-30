@@ -66,8 +66,6 @@ func ViewVotings(w http.ResponseWriter, r *http.Request) {
 			}
 			options = append(options, option)
 		}
-
-		// Check for errors from iterating over rows
 		if err = rows.Err(); err != nil {
 			http.Error(w, "Error processing options", http.StatusInternalServerError)
 			return

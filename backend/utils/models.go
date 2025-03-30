@@ -2,6 +2,7 @@ package utils
 
 import (
 	"time"
+        "sql"
 )
 
 type SessionData struct {
@@ -11,27 +12,37 @@ type SessionData struct {
 	Expiry   time.Time
 }
 
-type Option struct {
-	VotingId int
-	OptionText string
-	VoteCount int
-}
-
-type FullVoting struct{
-	Voting Voting
-	Options []Option
-}
-
 type Thread struct {
-	ID         int
-	ThreadName string
+	ID         int    `sql:"id"`
+	ThreadName string `sql:"thread_name"`
 }
 
 type Voting struct {
-	ID       int
-	ThreadId int
-	Title    string
-	Descr    string
+	ID       int    `sql:"id"`
+	ThreadId int    `sql:"thread_id"`
+	Title    string `sql:"title"`
+	Descr    string `sql:"descr"`
+}
+
+type Vote struct {
+    ID       int    `sql:"id"`
+    UserId   int    `sql:"user_id"`
+    VotingId int    `sql:"voting_id"`
+    Vote     string `sql:"vote"`
+}
+
+type Option struct {
+    VotingId   int    `sql:"voting_id"`
+    OptionText string `sql:"option_text"`
+    VoteCount  int    `sql:"vote_count"`
+}
+
+type Comment struct {
+    ID          int    `sql:"id"`
+    UserId      int    `sql:"user_id"`
+    VotingId    int    `sql:"voting_id"`
+    CommentText string `sql:"comment_text"`
 }
 
 type ContextKey string
+

@@ -36,7 +36,7 @@ CREATE TABLE votes(
     id SERIAL PRIMARY KEY,
     user_id INTEGER REFERENCES users(id),
     voting_id INTEGER REFERENCES votings(id),
-    vote INTEGER NOT NULL
+    vote TEXT NOT NULL
 );
 
 INSERT INTO users (username, password_hash, user_role) VALUES ('admin', '713bfda78870bf9d1b261f565286f85e97ee614efe5f0faf7c34e7ca4f65baca', 'Admin')
