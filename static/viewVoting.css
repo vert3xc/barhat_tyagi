@@ -1,0 +1,80 @@
+body {
+    background-color: #f0f2f5;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+.voting-form {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    margin: 20px;
+}
+
+.voting-form h1 {
+    color: #1a1a1a;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.voting-form p {
+    color: #4a4a4a;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.options-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 2rem;
+    justify-content: center;
+}
+
+.btn-info {
+    background-color: #e9ecef !important;
+    border: 2px solid #dee2e6 !important;
+    color: #495057 !important;
+    border-radius: 25px;
+    padding: 12px 24px;
+    transition: all 0.3s ease;
+    flex-grow: 1;
+    min-width: 150px;
+}
+
+.btn-info:hover,
+.btn-info:focus {
+    background-color: #d3d9df !important;
+    border-color: #ced4da !important;
+    transform: translateY(-2px);
+}
+
+.submit-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    display: block;
+    margin: 0 auto;
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 300px;
+}
+
+.submit-btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+}
