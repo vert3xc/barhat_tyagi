@@ -4,12 +4,11 @@ import (
 	"html/template"
 	"net/http"
 	"strconv"
-	"strings"
 
 	"github.com/vert3xc/barhat_tyagi/backend/utils"
 
+	"github.com/gorilla/mux"
 	_ "github.com/lib/pq"
-        "github.com/gorilla/mux"
 )
 
 func ThreadVotings(w http.ResponseWriter, r *http.Request) {

@@ -2,7 +2,6 @@ package utils
 
 import (
 	"time"
-        "sql"
 )
 
 type SessionData struct {
@@ -25,24 +24,28 @@ type Voting struct {
 }
 
 type Vote struct {
-    ID       int    `sql:"id"`
-    UserId   int    `sql:"user_id"`
-    VotingId int    `sql:"voting_id"`
-    Vote     string `sql:"vote"`
+	ID       int    `sql:"id"`
+	UserId   int    `sql:"user_id"`
+	VotingId int    `sql:"voting_id"`
+	Vote     string `sql:"vote"`
 }
 
 type Option struct {
-    VotingId   int    `sql:"voting_id"`
-    OptionText string `sql:"option_text"`
-    VoteCount  int    `sql:"vote_count"`
+	VotingId   int    `sql:"voting_id"`
+	OptionText string `sql:"option_text"`
+	VoteCount  int    `sql:"vote_count"`
 }
 
 type Comment struct {
-    ID          int    `sql:"id"`
-    UserId      int    `sql:"user_id"`
-    VotingId    int    `sql:"voting_id"`
-    CommentText string `sql:"comment_text"`
+	ID          int    `sql:"id"`
+	UserId      int    `sql:"user_id"`
+	VotingId    int    `sql:"voting_id"`
+	CommentText string `sql:"comment_text"`
+}
+
+type FullVoting struct {
+	Voting  Voting
+	Options []Option
 }
 
 type ContextKey string
-
