@@ -1,5 +1,5 @@
 body {
-    background-color: #eaeaea;
+    background-color: #f1f1f1;
     padding-top: 150px;
     line-height: 1.6;
     font-family: 'Arial', sans-serif;
@@ -15,7 +15,7 @@ body {
 }
 
 .threads {
-    background-color: rgb(228, 228, 228); 
+    background-color: rgb(72, 172, 226); 
     border-radius: 8px; 
     padding: 20px;
     margin: 20px 0;

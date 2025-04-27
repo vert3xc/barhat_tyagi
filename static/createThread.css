@@ -1,5 +1,5 @@
 body {
-    background-color: #eaeaea;
+    background-color: #f1f1f1;
     line-height: 1.6;
     padding-top: 150px;
     font-family: 'Arial', sans-serif;
@@ -20,7 +20,7 @@ body {
 }
 
 .form-group {
-    background-color: rgb(170, 170, 170);
+    background-color: rgb(86, 164, 233);
     border-radius: 8px;
     padding: 20px;
     margin-bottom: 25px;
@@ -57,5 +57,5 @@ body {
 }
 
 .btn-primary:hover {
-    background: #3977fc !important;
+    background: #578af9 !important;
 }

@@ -6,7 +6,7 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #eaeaea;
+    background-color: #f1f1f1;
 }
 
 .navbar {
@@ -57,7 +57,7 @@ body {
 }
 
 .nav-link:hover {
-    background-color: #5048df;
+    background-color: #466ae0;
     transform: translateY(-2px);
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }

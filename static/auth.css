@@ -1,5 +1,5 @@
 body {
-    background: #47a5df;
+    background: #f1f1f1;
     min-height: 100vh;
     font-family: 'Arial', sans-serif;
 }
@@ -13,7 +13,7 @@ body {
 }
 
 .auth-card {
-    background: rgb(66, 103, 71);
+    background: rgb(37, 144, 197);
     padding: 2rem;
     border-radius: 12px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
